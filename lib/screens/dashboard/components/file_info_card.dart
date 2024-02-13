@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:responsiveness/constants.dart';
-import 'package:responsiveness/models/my_files.dart';
+import 'package:responsiveness/models/My_files.dart';
 
 class FileInfoCard extends StatelessWidget {
   final CloudStorageInfo info;
