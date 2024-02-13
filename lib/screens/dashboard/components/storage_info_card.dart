@@ -22,7 +22,8 @@ class StorageInfoCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(defaultPadding),
       ),
       child: Row(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           SizedBox(
             height: 20,
