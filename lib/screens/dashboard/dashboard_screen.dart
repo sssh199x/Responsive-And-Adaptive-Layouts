@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:responsiveness/constants.dart';
-import 'package:responsiveness/models/my_files.dart';
-import 'package:responsiveness/screens/dashboard/components/file_info_card.dart';
 import 'package:responsiveness/screens/dashboard/components/header_section.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:responsiveness/screens/dashboard/components/my_files.dart';
@@ -49,32 +47,9 @@ class DashBoardScreen extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(
+                const Expanded(
                   flex: 5,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      const MyFiles(),
-                      const SizedBox(
-                        height: defaultPadding,
-                      ),
-                      GridView.builder(
-                        shrinkWrap: true,
-                        itemCount: demoMyFiles.length,
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 4,
-                                mainAxisSpacing: defaultPadding,
-                                crossAxisSpacing: defaultPadding,
-                                childAspectRatio: 1.3),
-                        itemBuilder: (context, index) {
-                          return FileInfoCard(
-                            info: demoMyFiles[index],
-                          );
-                        },
-                      ),
-                    ],
-                  ),
+                  child: MyFiles(),
                 ),
                 const SizedBox(
                   width: defaultPadding,
