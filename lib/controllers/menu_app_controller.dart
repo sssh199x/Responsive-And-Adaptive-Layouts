@@ -9,7 +9,7 @@ class MenuAppController extends ChangeNotifier {
   GlobalKey<ScaffoldState> get scaffoldKey => _scaffoldKey;
 
   // Method to control the menu
-  void conrolMenu() {
+  void controlMenu() {
     // Check if the drawer is not open
     if (!_scaffoldKey.currentState!.isDrawerOpen) {
       // If the drawer is not open, open it
