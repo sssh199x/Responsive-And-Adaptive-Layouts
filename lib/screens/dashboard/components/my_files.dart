@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsiveness/constants.dart';
-import 'package:responsiveness/models/My_files.dart';
-import 'package:responsiveness/screens/dashboard/components/file_info_card.dart';
+import 'package:responsiveness/responsive.dart';
+import 'package:responsiveness/screens/dashboard/components/file_info_card_grid_view.dart';
 import 'package:responsiveness/screens/dashboard/components/recent_files_view.dart';
 
 class MyFiles extends StatelessWidget {
@@ -11,6 +11,7 @@ class MyFiles extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -41,19 +42,11 @@ class MyFiles extends StatelessWidget {
         const SizedBox(
           height: defaultPadding,
         ),
-        GridView.builder(
-          shrinkWrap: true,
-          itemCount: demoMyFiles.length,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 4,
-              mainAxisSpacing: defaultPadding,
-              crossAxisSpacing: defaultPadding,
-              childAspectRatio: 1.3),
-          itemBuilder: (context, index) {
-            return FileInfoCard(
-              info: demoMyFiles[index],
-            );
-          },
+        Responsive(
+          mobile: const FileInfoCardGridView(),
+          desktop: FileInfoCardGridView(
+              childAspectRatio: size.width < 1400 ? 1.0 : 1.4),
+          tablet: const FileInfoCardGridView(),
         ),
         const SizedBox(
           height: defaultPadding,
