@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:responsiveness/controllers/menu_app_controller.dart';
 import 'package:responsiveness/responsive.dart';
 import 'package:responsiveness/screens/dashboard/dashboard_screen.dart';
 import 'package:responsiveness/screens/main/components/side_bar_menu.dart';
@@ -9,6 +11,8 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: context.read<MenuAppController>().scaffoldKey,
+      drawer: const SidebarMenu(),
       body: SafeArea(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
