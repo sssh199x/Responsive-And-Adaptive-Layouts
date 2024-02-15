@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:responsiveness/constants.dart';
+import 'package:responsiveness/models/my_files.dart';
+import 'package:responsiveness/responsive.dart';
 import 'package:responsiveness/screens/dashboard/components/header_section.dart';
-import 'package:fl_chart/fl_chart.dart';
 import 'package:responsiveness/screens/dashboard/components/my_files.dart';
 import 'package:responsiveness/screens/dashboard/components/storage_details.dart';
 
@@ -10,30 +11,6 @@ class DashBoardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<PieChartSectionData> pieChartSectionData = [
-      PieChartSectionData(
-          radius: 25, value: 25, showTitle: false, color: primaryColor),
-      PieChartSectionData(
-          radius: 22,
-          value: 20,
-          color: const Color(0xFF26E5FF),
-          showTitle: false),
-      PieChartSectionData(
-          radius: 19,
-          value: 10,
-          color: const Color(0xFFFFCF26),
-          showTitle: false),
-      PieChartSectionData(
-          radius: 16,
-          value: 15,
-          color: const Color(0xFFEE2727),
-          showTitle: false),
-      PieChartSectionData(
-          showTitle: false,
-          radius: 13,
-          value: 25,
-          color: primaryColor.withOpacity(0.1))
-    ];
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
@@ -54,11 +31,12 @@ class DashBoardScreen extends StatelessWidget {
                 const SizedBox(
                   width: defaultPadding,
                 ),
-                Expanded(
-                  flex: 2,
-                  child:
-                      StorageDetails(pieChartSectionData: pieChartSectionData),
-                ),
+                if (!Responsive.isMobile(context))
+                  Expanded(
+                    flex: 2,
+                    child: StorageDetails(
+                        pieChartSectionData: pieChartSectionData),
+                  ),
               ],
             ),
           ],
