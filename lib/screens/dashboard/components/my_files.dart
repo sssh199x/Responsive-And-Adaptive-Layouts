@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:responsiveness/constants.dart';
+import 'package:responsiveness/models/my_files.dart';
 import 'package:responsiveness/responsive.dart';
 import 'package:responsiveness/screens/dashboard/components/file_info_card_grid_view.dart';
 import 'package:responsiveness/screens/dashboard/components/recent_files_view.dart';
+import 'package:responsiveness/screens/dashboard/components/storage_details.dart';
 
 class MyFiles extends StatelessWidget {
   const MyFiles({
@@ -43,15 +45,32 @@ class MyFiles extends StatelessWidget {
           height: defaultPadding,
         ),
         Responsive(
-          mobile: const FileInfoCardGridView(),
+          mobile: FileInfoCardGridView(
+            crossAxisCount: size.width < 650
+                ? size.width < 375
+                    ? 1
+                    : 2
+                : 4,
+            childAspectRatio: size.width < 650
+                ? size.width < 375
+                    ? 1.5
+                    : 1
+                : 0.8,
+          ),
           desktop: FileInfoCardGridView(
-              childAspectRatio: size.width < 1400 ? 1.0 : 1.4),
+              childAspectRatio: size.width < 1400 ? 0.8 : 1.2),
           tablet: const FileInfoCardGridView(),
         ),
         const SizedBox(
           height: defaultPadding,
         ),
-        const RecentFilesView()
+        const RecentFilesView(),
+        if (Responsive.isMobile(context))
+          const SizedBox(
+            height: defaultPadding,
+          ),
+        if (Responsive.isMobile(context))
+          StorageDetails(pieChartSectionData: pieChartSectionData)
       ],
     );
   }
