@@ -5,9 +5,9 @@ import 'package:responsiveness/constants.dart';
 class TAppTheme {
   TAppTheme._();
   static ThemeData lightTheme = ThemeData(
-      scaffoldBackgroundColor: bgColorLight,
+      scaffoldBackgroundColor: const Color.fromARGB(255, 72, 135, 120),
       textTheme: GoogleFonts.poppinsTextTheme(ThemeData.light().textTheme)
-          .apply(bodyColor: Colors.black),
+          .apply(bodyColor: Colors.white),
       canvasColor: secondaryColor);
   static ThemeData darkTheme = ThemeData(
       scaffoldBackgroundColor: bgColorDark,
