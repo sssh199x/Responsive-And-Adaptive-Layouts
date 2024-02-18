@@ -48,24 +48,22 @@ class ProfileView extends StatelessWidget {
           border: Border.all(color: Colors.white10),
           borderRadius: BorderRadius.circular(10)),
       //
-      child: Expanded(
-        child: Row(
-          children: [
-            Image.asset(
-              'assets/images/profile_pic.png',
-              height: 38,
+      child: Row(
+        children: [
+          Image.asset(
+            'assets/images/profile_pic.png',
+            height: 38,
+          ),
+          if (!Responsive.isMobile(context))
+            const Padding(
+              padding: EdgeInsets.all(defaultPadding / 2),
+              child: Text('Scarlet Johnasson'),
             ),
-            if (!Responsive.isMobile(context))
-              const Padding(
-                padding: EdgeInsets.all(defaultPadding / 2),
-                child: Text('Scarlet Johnasson'),
-              ),
-            const Icon(
-              Icons.keyboard_arrow_down,
-              color: bgColorLight,
-            )
-          ],
-        ),
+          const Icon(
+            Icons.keyboard_arrow_down,
+            color: bgColorLight,
+          )
+        ],
       ),
     );
   }
@@ -102,26 +100,5 @@ class SearchField extends StatelessWidget {
         ),
       ),
     );
-    // SearchBar(
-    //   textStyle: const MaterialStatePropertyAll(TextStyle(color: bgColorLight)),
-    //   trailing: [
-    //     InkWell(
-    //       onTap: () {},
-    //       child: Container(
-    //         decoration: BoxDecoration(
-    //             color: Colors.blue, borderRadius: BorderRadius.circular(10)),
-    //         padding: const EdgeInsets.all(defaultPadding * 0.5),
-    //         margin: const EdgeInsets.symmetric(horizontal: defaultPadding / 4),
-    //         child: SvgPicture.asset(
-    //           'assets/icons/Search.svg',
-    //           fit: BoxFit.contain,
-    //         ),
-    //       ),
-    //     )
-    //   ],
-    //   backgroundColor: const MaterialStatePropertyAll(secondaryColor),
-    //   hintText: 'Search',
-    //   hintStyle: const MaterialStatePropertyAll(TextStyle(color: bgColorLight)),
-    // );
   }
 }
