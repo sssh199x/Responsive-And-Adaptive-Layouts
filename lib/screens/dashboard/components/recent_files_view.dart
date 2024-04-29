@@ -30,7 +30,7 @@ class RecentFilesView extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     child: DataTable(
                       border: TableBorder.all(color: bgColorLight),
-                      columnSpacing: 16,
+                      columnSpacing: 15,
                       columns: const [
                         DataColumn(
                           label: Text('File Name',
