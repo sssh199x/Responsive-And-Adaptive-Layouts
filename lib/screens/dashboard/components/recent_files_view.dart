@@ -51,7 +51,7 @@ class RecentFilesView extends StatelessWidget {
                   )
                 : DataTable(
                     border: TableBorder.all(color: bgColorLight),
-                    columnSpacing: 15,
+                    columnSpacing: 16,
                     columns: const [
                       DataColumn(
                         label: Text('File Name',
